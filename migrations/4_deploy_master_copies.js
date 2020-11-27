@@ -11,7 +11,7 @@ const zeroAddress = "0x0000000000000000000000000000000000000000"
 
 module.exports = function(deployer) {
     deployer.deploy(GnosisSafe).then(function (safe) {
-        safe.setup([notOwnedAddress], 1, zeroAddress, 0, zeroAddress, zeroAddress, 0, zeroAddress)
+        safe.setup([notOwnedAddress], 1, zeroAddress, "0x", zeroAddress, zeroAddress, 0, zeroAddress)
         return safe
     });
     deployer.deploy(StateChannelModule).then(function (module) {
