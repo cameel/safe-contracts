@@ -7,10 +7,11 @@ var WhitelistModule = artifacts.require("./WhitelistModule.sol");
 
 const notOwnedAddress = "0x0000000000000000000000000000000000000002"
 const notOwnedAddress2 = "0x0000000000000000000000000000000000000003"
+const zeroAddress = "0x0000000000000000000000000000000000000000"
 
 module.exports = function(deployer) {
     deployer.deploy(GnosisSafe).then(function (safe) {
-        safe.setup([notOwnedAddress], 1, 0, 0, 0, 0, 0, 0)
+        safe.setup([notOwnedAddress], 1, zeroAddress, 0, zeroAddress, zeroAddress, 0, zeroAddress)
         return safe
     });
     deployer.deploy(StateChannelModule).then(function (module) {
